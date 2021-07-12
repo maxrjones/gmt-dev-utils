@@ -1,0 +1,45 @@
+# .bashrc include file for simplifying PyGMT development and testing
+#
+# Include in your .bashrc via source <path>/bashrc_for_pygmt
+#
+# You must set these parameters to reflect your setup
+
+PYGMT_REPO_DIR=/Users/${USER}/Code/GenericMappingTools/pygmt
+
+# Adapted from https://github.com/GenericMappingTools/gmt/blob/master/admin/bashrc_for_gmt
+# See LICENSE.txt in the main GMT repository for the GNU Lesser Public License for that file
+#--------------------------------------------------------------
+
+# Various PyGMT aliases
+alias ptop='cd ${PYGMT_REPO_DIR}' # Navigate to the top of the PyGMT repository
+alias pstart='conda activate pygmt' # Activate the PyGMT conda environment
+alias pstop='conda deactivate' # Deactivate the PyGMT conda environment
+alias pdevstart='conda activate pygmt-dev' # Activate the PyGMT development conda environment (for debugging GMT)
+alias pnew='ptop; make clean; make install' # Clean PyGMT install files and reinstall
+alias pupdate='ptop; make install' # Install PyGMT without cleaning first
+alias pndoc='ptop; make install; cd doc; make clean; make html; ptop' # Clean PyGMT documentation and rebuild
+alias pdoc='ptop; cd doc; make html; ptop' # Build PyGMT documentation without cleaning first
+
+# Shorter aliases for the PyGMT aliases
+alias ps=pstart
+alias pds=pdevstart
+alias pn=pnew
+alias pu=pupdate
+
+# function for processing find output and return list of unique files.
+function unique {
+	awk -F: '{print $1}' | sort -u
+}
+
+# List source, docs, scripts and txt files where the argument to pygmtfind appears as is in the file
+# e.g, pygmtfind "Grid increment is"
+function pygmtfind {
+	find . -name '*.rst' -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.py'   -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.txt'  -exec egrep -H "$*" {} \; | unique ;
+    find . -name '*.md'  -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.html'  -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.yml'  -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.toml'  -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.in'  -exec egrep -H "$*" {} \; | unique ;
+}
