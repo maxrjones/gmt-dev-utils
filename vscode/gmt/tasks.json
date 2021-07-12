@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ninja build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}",
+                "env": {
+                    "ADD_FLAGS": "-DCMAKE_OSX_DEPLOYMENT_TARGET=11.3"
+                }
+            },
+            "command": "rm -rf vbuild; mkdir vbuild; cd vbuild; cmake -DCMAKE_INSTALL_PREFIX=\"${workspaceRoot}/vbuild/gmt6\" -DCMAKE_BUILD_TYPE=Debug ${ADD_FLAGS} -G \"Ninja\" ..; ninja; ninja install; mkdir debug; cp ${workspaceRoot}/.vscode/project.env debug/project.env"
+        },
+        {
+            "label": "ninja rebuild",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "command": "cd vbuild; ninja; ninja install; mkdir debug; cp ${workspaceRoot}/.vscode/project.env debug/project.env"
+        }
+    ]
+}
