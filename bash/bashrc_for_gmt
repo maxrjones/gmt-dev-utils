@@ -21,12 +21,16 @@ Bname="Ninja"	# If ninja is not installed (please do), set to "Unix Makefiles"
 pngview=open	# Program that can open and display PNG files
 pdfview=open	# Program that can open and display PDF files
 ncores=4		# Number of cores for running tests
-MATLAB=/Applications/MATLAB_R2020b.app	# Path to the Matlab app
-REPO_DIR="/Users/${USER}/Code/GenericMappingTools/gmt"
-DATA_DIR="/Users/${USER}/Documents/GMT/data"
 EDITOR=code		# Program that can open and display text files
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	MATLAB="/usr"
+	REPO_DIR="/home/${USER}/Code/GenericMappingTools/gmt"
+	DATA_DIR="/home/${USER}/Documents/GMT/data
+elif [[ "$OSTYPE" == "darwin"* ]]; then
 	TARGET="11.3"	# Only for MacOS; define target for CMAKE_OSX_DEPLOYMENT_TARGET
+	MATLAB=/Applications/MATLAB_R2020b.app	# Path to the Matlab app
+	REPO_DIR="/Users/${USER}/Code/GenericMappingTools/gmt"
+	DATA_DIR="/Users/${USER}/Documents/GMT/data
 fi
 
 # Modified from https://github.com/GenericMappingTools/gmt/blob/master/admin/bashrc_for_gmt
