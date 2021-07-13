@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(lldb) Attach",
+            "name": "(gdb) Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "${workspaceFolder}/vbuild/src/gmt",
+            "program": "/home/meghan/anaconda3/envs/pygmt-dev/bin/python",
             "processId": "${command:pickProcess}",
-            "MIMode": "lldb"
+            "MIMode": "gdb"
         },
         {
             "type": "bashdb",
@@ -39,7 +39,7 @@
             "environment": [],
             "envFile": "${workspaceFolder}/vbuild/debug/project.env",
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "gdb"
         },
         {
             "name": "gmt command",
@@ -52,7 +52,7 @@
             "environment": [],
             "envFile": "${workspaceFolder}/vbuild/debug/project.env",
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "gdb"
         },
         {
             "name": "gmt basemap",
@@ -65,7 +65,7 @@
             "environment": [],
             "envFile": "${workspaceFolder}/vbuild/debug/project.env",
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "gdb"
         },
         {
             "name": "gmt end",
@@ -78,7 +78,7 @@
             "environment": [],
             "envFile": "${workspaceFolder}/vbuild/debug/project.env",
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "gdb"
         }
     ]
 }
