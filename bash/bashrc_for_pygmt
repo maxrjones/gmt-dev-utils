@@ -5,9 +5,9 @@
 # You must set these parameters to reflect your setup
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	PYGMT_REPO_DIR=/home/${USER}/Code/GenericMappingTools/pygmt
+	PYGMT_REPO_DIR="/home/${USER}/Code/GenericMappingTools/pygmt"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	PYGMT_REPO_DIR=/Users/${USER}/Code/GenericMappingTools/pygmt
+	PYGMT_REPO_DIR="/Users/${USER}/Code/GenericMappingTools/pygmt"
 fi
 # Adapted from https://github.com/GenericMappingTools/gmt/blob/master/admin/bashrc_for_gmt
 # See LICENSE.txt in the main GMT repository for the GNU Lesser Public License for that file
