@@ -31,6 +31,12 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	MATLAB=/Applications/MATLAB_R2020b.app	# Path to the Matlab app
 	REPO_DIR="/Users/${USER}/Code/GenericMappingTools/gmt"
 	DATA_DIR="/Users/${USER}/Documents/GMT/data"
+elif [[ "$OSTYPE" == "msys" ]]; then
+	MATLAB="/c/programs/matlab"	# Path to the Matlab app
+	REPO_DIR="/c/Users/${USER}/Code/GenericMappingTools/gmt"
+	DATA_DIR="/c/Users/${USER}/Documents/GMT/data"
+	VCPKG_PATH="/c/vcpkg/scripts/buildsystems/vcpkg.cmake"
+	PLATFORM=x64
 fi
 
 # Modified from https://github.com/GenericMappingTools/gmt/blob/master/admin/bashrc_for_gmt
@@ -40,7 +46,11 @@ fi
 
 # Add cmake flags for different OS
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	ADD_FLAGS="-DCMAKE_OSX_DEPLOYMENT_TARGET=${TARGET}"
+	ADD_FLAGS="-DCMAKE_OSX_DEPLOYMENT_TARGET=${TARGET} -G ${Bname}"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	ADD_FLAGS="-G ${Bname}"
+elif [[ "$OSTYPE" == "msys" ]]; then
+	ADD_FLAGS="-DCMAKE_TOOLCHAIN_FILE=${VCPKG_PATH}"
 fi
 
 # These are needed to run admin/build-gmt-release.sh
@@ -76,8 +86,8 @@ function htmlfind {
 # Various GMT building aliases
 
 # To run cmake for GMT for various setups
-alias cmakegmtd='cmake -DCMAKE_INSTALL_PREFIX=gmt6 -DCMAKE_BUILD_TYPE=Debug ..' # Configure cmake for debug
-alias cmakegmtr='cmake -DCMAKE_INSTALL_PREFIX=gmt6 -DCMAKE_BUILD_TYPE=Release ..' # Configure cmake for release
+alias cmakegmtd='cmake -DCMAKE_INSTALL_PREFIX=gmt6 -DCMAKE_BUILD_TYPE=Debug ${ADD_FLAGS} ..' # Configure cmake for debug
+alias cmakegmtr='cmake -DCMAKE_INSTALL_PREFIX=gmt6 -DCMAKE_BUILD_TYPE=Release ${ADD_FLAGS} ..' # Configure cmake for release
 
 # To change folders, open logs, build docs
 alias gmt6='cd ${REPO_DIR}/src'	# Cd to the GMT source directory
