@@ -8,19 +8,32 @@
             "type": "shell",
             "options": {
                 "cwd": "${workspaceRoot}",
-                "env": {
-                    "ADD_FLAGS": "-DCMAKE_OSX_DEPLOYMENT_TARGET=11.3"
-                }
             },
-            "command": "rm -rf vbuild; mkdir vbuild; cd vbuild; cmake -DCMAKE_INSTALL_PREFIX=\"${workspaceRoot}/vbuild/gmt6\" -DCMAKE_BUILD_TYPE=Debug ${ADD_FLAGS} -G \"Ninja\" ..; ninja; ninja install; mkdir debug; cp ${workspaceRoot}/.vscode/project.env debug/project.env"
+            "command": "call \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && mkdir vbuild && cd vbuild && cmake -G Ninja .. -DCMAKE_TOOLCHAIN_FILE=C:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake -DCMAKE_BUILD_TYPE=Debug && cmake --build . --config Debug && mkdir debug",
         },
         {
-            "label": "ninja rebuild",
+            "label": "cmake build",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}"
+                "cwd": "${workspaceRoot}",
             },
-            "command": "cd vbuild; ninja; ninja install; mkdir debug; cp ${workspaceRoot}/.vscode/project.env debug/project.env"
+            "command": "mkdir vbuild && cd vbuild && cmake -DCMAKE_TOOLCHAIN_FILE=C:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake -DCMAKE_GENERATOR_PLATFORM=x64 .. && cmake --build . --config Debug && mkdir debug",
+        },
+        {
+            "label": "cmake rebuild",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}",
+            },
+            "command": "cd vbuild && cmake --build . --config Debug",
+        },
+        {
+            "label": "cmake install",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}\\vbuild",
+            },
+            "command": "cmake --build . --target install",
         }
     ]
 }
