@@ -4,7 +4,7 @@ channels:
     - defaults
 dependencies:
     # Required dependencies
-    - pip
+    - pip=21.2.4
     - numpy>=1.18
     - pandas
     - xarray
