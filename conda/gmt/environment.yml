@@ -1,0 +1,9 @@
+name: gmt-dev
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    # Required dependencies
+    - sphinx
+    - docutils=0.16
+    - dvc=2.3.0
