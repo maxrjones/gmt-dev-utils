@@ -5,7 +5,7 @@
             "name": "(lldb) Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "/Users/meghanj/Sandbox/anaconda-03/anaconda3/envs/pygmt-dev/bin/python",
+            "program": "/Users/meghanj/opt/anaconda3/envs/pygmt-dev/bin/python",
             "processId": "${command:pickProcess}",
             "MIMode": "lldb"
         },
