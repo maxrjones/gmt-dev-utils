@@ -1,0 +1,12 @@
+name: pygmt-dev
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    # Required dependencies
+    - pip=21.2.4
+    - numpy>=1.18
+    - pandas
+    - xarray
+    - netCDF4
+    - packaging
