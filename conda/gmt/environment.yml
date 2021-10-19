@@ -6,4 +6,4 @@ dependencies:
     # Required dependencies
     - sphinx
     - docutils=0.16
-    - dvc=2.3.0
+    - dvc
