@@ -94,8 +94,8 @@ alias gmt6='cd ${REPO_DIR}/src'	# Cd to the GMT source directory
 alias gtop='cd ${REPO_DIR}'	# Cd to the top of the dev tree
 alias dlog='pushd .; gtop; ${EDITOR} dbuild/Testing/Temporary/LastTest.log; popd' # Open the dbuild check error log
 alias rlog='pushd .; gtop; ${EDITOR} rbuild/Testing/Temporary/LastTest.log; popd' # Open the rbuild check error log
-alias bdoc='pushd .; gtop; cd dbuild; ${builder} -j${ncores} docs_html install; popd'
-alias brdoc='pushd .; gtop; cd rbuild; ${builder} -j${ncores} docs_html install; popd'
+alias bdoc='pushd .; gtop; conda deactivate; conda activate gmt-dev; sleep 3; cd dbuild; ${builder} -j${ncores} docs_html install; popd'
+alias brdoc='pushd .; gtop; conda deactivate; conda activate gmt-dev; sleep 3; cd rbuild; ${builder} -j${ncores} docs_html install; popd'
 alias bman='pushd .; gtop; cd dbuild; ${builder} -j${ncores} docs_man install; popd'
 
 # To pull changes, rebuild existing build directories
