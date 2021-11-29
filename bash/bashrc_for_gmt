@@ -27,7 +27,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	REPO_DIR="/home/${USER}/Code/GenericMappingTools/gmt"
 	DATA_DIR="/home/${USER}/Documents/GMT/data"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	TARGET="11.3"	# Only for MacOS; define target for CMAKE_OSX_DEPLOYMENT_TARGET
+	TARGET="12.0"	# Only for MacOS; define target for CMAKE_OSX_DEPLOYMENT_TARGET
 	MATLAB=/Applications/MATLAB_R2020b.app	# Path to the Matlab app
 	REPO_DIR="/Users/${USER}/Code/GenericMappingTools/gmt"
 	DATA_DIR="/Users/${USER}/Documents/GMT/data"
