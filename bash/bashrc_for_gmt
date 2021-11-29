@@ -70,11 +70,13 @@ function unique {
 # e.g, gmtfind "Grid increment is"
 function gmtfind {
 	find . -name '*.[ch]' -exec egrep -H "$*" {} \; | unique ;
-	find . -name '*.in]'  -exec egrep -H "$*" {} \; | unique ;
-	find . -name '*.txt]' -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.cmake' -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.in'  -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.txt' -exec egrep -H "$*" {} \; | unique ;
 	find . -name '*.rst*' -exec egrep -H "$*" {} \; | unique ;
 	find . -name '*.sh'   -exec egrep -H "$*" {} \; | unique ;
 	find . -name '*.bat'  -exec egrep -H "$*" {} \; | unique ;
+	find . -name '*.yml'  -exec egrep -H "$*" {} \; | unique ;
 }
 
 # List html files where the argument to gmtfind appears as is in the file
