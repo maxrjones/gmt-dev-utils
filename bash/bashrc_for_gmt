@@ -196,3 +196,11 @@ function view_pdf_failures_r {
 	rm -f /tmp/vpf
 	popd
 }
+
+function move_test {
+	test="${1}.ps"
+	git rm --cached ${test}
+	test_dir=$(dirname "${test}")
+	mkdir "${REPO_DIR}/test/baseline/${test_dir}/"
+	mv ${test} "${REPO_DIR}/test/baseline/${test_dir}/"
+}
