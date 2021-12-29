@@ -7,7 +7,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "ADD_FLAGS": "-DCMAKE_OSX_DEPLOYMENT_TARGET=11.3"
+                    "ADD_FLAGS": "-DCMAKE_OSX_DEPLOYMENT_TARGET=12.1"
                 }
             },
             "command": "rm -rf vbuild; mkdir vbuild; cd vbuild; cmake -DCMAKE_INSTALL_PREFIX=\"${workspaceRoot}/vbuild/gmt6\" -DCMAKE_BUILD_TYPE=Debug ${ADD_FLAGS} -G \"Ninja\" ..; ninja; ninja install; mkdir debug; cp ${workspaceRoot}/.vscode/project.env debug/project.env"
