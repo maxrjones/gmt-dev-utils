@@ -31,6 +31,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	MATLAB=/Applications/MATLAB_R2020b.app	# Path to the Matlab app
 	REPO_DIR="/Users/${USER}/Code/GenericMappingTools/gmt"
 	DATA_DIR="/Users/${USER}/Documents/GMT/data"
+	ncores=24		# Number of cores for running tests
 elif [[ "$OSTYPE" == "msys" ]]; then
 	MATLAB="/c/programs/matlab"	# Path to the Matlab app
 	REPO_DIR="/c/Users/${USER}/Code/GenericMappingTools/gmt"
