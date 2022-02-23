@@ -6,4 +6,4 @@ DATA_DIR="/Users/${USER}/Documents/GMT/data"
 # These are needed to run admin/build-gmt-release.sh
 export GMT_REPO_DIR=${REPO_DIR}
 export GMT_GSHHG_SOURCE=${DATA_DIR}/gshhg-gmt-2.3.7
-export GMT_DCW_SOURCE=${DATA_DIR}/dcw-gmt-2.0.1
+export GMT_DCW_SOURCE=${DATA_DIR}/dcw-gmt-2.1.0
