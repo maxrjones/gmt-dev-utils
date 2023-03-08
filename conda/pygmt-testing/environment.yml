@@ -1,28 +1,29 @@
 name: pygmt-dev-testing
 channels:
     - conda-forge
-    - defaults
+    - nodefaults
 dependencies:
     # Required dependencies
     - pip
-    - numpy>=1.19
+    - numpy>=1.20
     - pandas
     - xarray
     - netCDF4
     - packaging
     # Optional dependencies
+    - contextily
     - geopandas
+    - ipython
     # Development dependencies (general)
     - build
-    - dvc
-    - ipython
+    # - dvc
     - jupyter
     - make
     # Dev dependencies (style checks)
     - black
     - blackdoc
-    - docformatter
-    - flake8
+    - docformatter>=1.5.0
+    - flakeheaven>=3
     - isort>=5
     - pylint
     # Dev dependencies (unit testing)
@@ -35,5 +36,7 @@ dependencies:
     - myst-parser
     - sphinx
     - sphinx-copybutton
+    - sphinx-design
     - sphinx-gallery
     - sphinx_rtd_theme
+    - ghostscript

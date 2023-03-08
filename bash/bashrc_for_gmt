@@ -24,17 +24,17 @@ ncores=4		# Number of cores for running tests
 EDITOR=code		# Program that can open and display text files
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	MATLAB="/usr"
-	REPO_DIR="/home/${USER}/Code/GenericMappingTools/gmt"
+	REPO_DIR="/home/${USER}/Documents/Code/GenericMappingTools/gmt"
 	DATA_DIR="/home/${USER}/Documents/GMT/data"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	TARGET="12.1"	# Only for MacOS; define target for CMAKE_OSX_DEPLOYMENT_TARGET
 	MATLAB=/Applications/MATLAB_R2020b.app	# Path to the Matlab app
-	REPO_DIR="/Users/${USER}/Code/GenericMappingTools/gmt"
+	REPO_DIR="/Users/${USER}/Documents/Code/GenericMappingTools/gmt"
 	DATA_DIR="/Users/${USER}/Documents/GMT/data"
 	ncores=24		# Number of cores for running tests
 elif [[ "$OSTYPE" == "msys" ]]; then
 	MATLAB="/c/programs/matlab"	# Path to the Matlab app
-	REPO_DIR="/c/Users/${USER}/Code/GenericMappingTools/gmt"
+	REPO_DIR="/c/Users/${USER}/Documents/Code/GenericMappingTools/gmt"
 	DATA_DIR="/c/Users/${USER}/Documents/GMT/data"
 	VCPKG_PATH="/c/vcpkg/scripts/buildsystems/vcpkg.cmake"
 	PLATFORM=x64
@@ -56,7 +56,7 @@ fi
 
 # These are needed to run admin/build-gmt-release.sh
 export GMT_GSHHG_SOURCE=${DATA_DIR}/gshhg-gmt-2.3.7
-export GMT_DCW_SOURCE=${DATA_DIR}/dcw-gmt-2.1.0
+export GMT_DCW_SOURCE=${DATA_DIR}/dcw-gmt-2.1.1
 
 # To run matlab without the GUI:
 alias matlab='$MATLAB/bin/matlab -nojvm'

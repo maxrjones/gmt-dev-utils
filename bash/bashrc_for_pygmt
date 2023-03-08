@@ -5,11 +5,11 @@
 # You must set these parameters to reflect your setup
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	PYGMT_REPO_DIR="/home/${USER}/Code/GenericMappingTools/pygmt"
+	PYGMT_REPO_DIR="/home/${USER}/Documents/Code/GenericMappingTools/pygmt"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	PYGMT_REPO_DIR="/Users/${USER}/Code/GenericMappingTools/pygmt"
+	PYGMT_REPO_DIR="/Users/${USER}/Documents/Code/GenericMappingTools/pygmt"
 elif [[ "$OSTYPE" == "msys" ]]; then
-	PYGMT_REPO_DIR="/c/Users/${USER}/Code/GenericMappingTools/pygmt"
+	PYGMT_REPO_DIR="/c/Users/${USER}/Documents/Code/GenericMappingTools/pygmt"
 fi
 # Adapted from https://github.com/GenericMappingTools/gmt/blob/master/admin/bashrc_for_gmt
 # See LICENSE.txt in the main GMT repository for the GNU Lesser Public License for that file
@@ -17,9 +17,9 @@ fi
 
 # Various PyGMT aliases
 alias ptop='cd ${PYGMT_REPO_DIR}' # Navigate to the top of the PyGMT repository
-alias pstart='conda activate pygmt' # Activate the PyGMT conda environment
-alias pstop='conda deactivate' # Deactivate the PyGMT conda environment
-alias pdevstart='conda activate pygmt-dev' # Activate the PyGMT development conda environment (for debugging GMT)
+alias pstart='mamba activate pygmt' # Activate the PyGMT conda environment
+alias pstop='mamba deactivate' # Deactivate the PyGMT conda environment
+alias pdevstart='mamba activate pygmt-dev' # Activate the PyGMT development conda environment (for debugging GMT)
 alias pnew='ptop; make clean; make install' # Clean PyGMT install files and reinstall
 alias pupdate='ptop; make install' # Install PyGMT without cleaning first
 alias pndoc='ptop; make install; cd doc; make clean; make html; ptop' # Clean PyGMT documentation and rebuild
